@@ -59,8 +59,9 @@ public class DemoSecurityConfig {
 
 				// フォームのログイン設定
 				.formLogin(
-						form -> form.loginPage("/showMyLoginPage").loginProcessingUrl("/authenticateTheUser")
-								.permitAll());
+						form -> form.loginPage("/showMyLoginPage") // カスタムログインページのパス
+								.loginProcessingUrl("/authenticateTheUser") // ユーザ認証処理を担当するエンドポイント 
+								.permitAll()); // ログインページへのアクセスは認証なしで許可
 
 		// 構築されたHttpSecurityをSecurityFilterChainに組み立てて返す
 		return http.build();
