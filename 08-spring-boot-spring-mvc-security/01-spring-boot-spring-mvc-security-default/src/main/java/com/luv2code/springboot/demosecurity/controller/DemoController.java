@@ -29,4 +29,14 @@ public class DemoController {
 
 		return "leaders";
 	}
+
+	/**
+	 * systems.htmlを表示
+	 * @return systems.html
+	 */
+	@GetMapping("/systems")
+	public String showSystems() {
+
+		return "systems";
+	}
 }
