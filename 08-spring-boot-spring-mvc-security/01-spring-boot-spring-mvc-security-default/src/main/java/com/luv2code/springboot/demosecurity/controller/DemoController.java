@@ -19,4 +19,14 @@ public class DemoController {
 
 		return "home";
 	}
+
+	/**
+	 * leaders.htmlを表示
+	 * @return leaders.html
+	 */
+	@GetMapping("/leaders")
+	public String showLeaders() {
+
+		return "leaders";
+	}
 }

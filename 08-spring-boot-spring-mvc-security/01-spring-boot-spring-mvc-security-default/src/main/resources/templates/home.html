@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 <meta charset="UTF-8">
@@ -17,9 +18,15 @@
 	<!-- display user name and role -->
 
 	<p>
-		User: <span sec:authentication="principal.username"></span>
-		<br><br>
-		Role(s): <span sec:authentication="principal.authorities"></span>
+		User: <span sec:authentication="principal.username"></span> <br>
+		<br> Role(s): <span sec:authentication="principal.authorities"></span>
+	</p>
+
+	<hr>
+	<!-- Add a link to point to /leaders ... this is for the managers -->
+	<p>
+		<a th:href="@{/leaders}">Leadership Meeting</a>
+		(Only for Manager peeps)
 	</p>
 
 	<hr>
