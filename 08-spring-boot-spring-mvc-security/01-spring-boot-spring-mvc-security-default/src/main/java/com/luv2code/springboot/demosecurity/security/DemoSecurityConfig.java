@@ -55,14 +55,23 @@ public class DemoSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
 		// すべてのHTTPリクエストに対して認証を要求する
-		http.authorizeHttpRequests(configurer -> configurer.anyRequest().authenticated())
+		http.authorizeHttpRequests(
+				configurer -> configurer.requestMatchers("/") // ルートパスへのアクセスは"EMPLOYEE"ロールが必要
+						.hasRole("EMPLOYEE")
+						.requestMatchers("/leaders/**") // "/leaders/**"へのアクセスは"MANAGER"ロールが必要
+						.hasRole("MANAGER")
+						.requestMatchers("/systems/**") // "/systems/**"へのアクセスは"ADMIN"ロールが必要
+						.hasRole("ADMIN")
+						.anyRequest() // 上記以外のすべてのリクエストに対しては認証が必要
+						.authenticated())
 
 				// フォームのログイン設定
 				.formLogin(
 						form -> form.loginPage("/showMyLoginPage") // カスタムログインページのパス
 								.loginProcessingUrl("/authenticateTheUser") // ユーザ認証処理を担当するエンドポイント 
 								.permitAll()) // ログインページへのアクセスは認証なしで許可
-				.logout(logout -> logout.permitAll());
+				.logout(logout -> logout.permitAll()); // ログアウトは認証なしで許可
+
 		// 構築されたHttpSecurityをSecurityFilterChainに組み立てて返す
 		return http.build();
 	}
