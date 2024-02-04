@@ -19,4 +19,14 @@ public class LoginController {
 
 		return "fancy-login";
 	}
+
+	/**
+	 * アクセス拒否ページを表示する
+	 * @return access-denied.htmlを表示する
+	 */
+	@GetMapping("/access-denied")
+	public String showAccessDenied() {
+
+		return "access-denied";
+	}
 }

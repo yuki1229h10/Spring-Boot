@@ -70,7 +70,8 @@ public class DemoSecurityConfig {
 						form -> form.loginPage("/showMyLoginPage") // カスタムログインページのパス
 								.loginProcessingUrl("/authenticateTheUser") // ユーザ認証処理を担当するエンドポイント 
 								.permitAll()) // ログインページへのアクセスは認証なしで許可
-				.logout(logout -> logout.permitAll()); // ログアウトは認証なしで許可
+				.logout(logout -> logout.permitAll()) // ログアウトは認証なしで許可
+				.exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied")); // アクセス拒否で表示するページ
 
 		// 構築されたHttpSecurityをSecurityFilterChainに組み立てて返す
 		return http.build();
