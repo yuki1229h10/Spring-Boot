@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-	lang="ja"
+	lang="en"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
@@ -20,7 +20,7 @@
 
 	<form
 		th:action="@{/processForm}"
-		th:object="customer"
+		th:object="${customer}"
 		method="POST">
 		First name: <input
 			type="text"
