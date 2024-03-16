@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
 <title>Student Registration Form</title>
 </head>
+
 <body>
 
 	<h3>Student Registration Form</h3>
@@ -20,14 +22,13 @@
 				th:value="${tempCountry}" th:text="${tempCountry}" />
 
 		</select> <br> <br> Favorite Programming Language: <input
-			type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input>
-		<input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>
-		<input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>
-
-		<br>
-		<br> <input type="submit" value="Submit" />
+			type="radio" th:field="*{favoriteLanguage}"
+			th:each="tempLang : ${languages}" th:value="${tempLang}"
+			th:text="${tempLang}" /> <br> <br> <input type="submit"
+			value="Submit" />
 
 	</form>
 
 </body>
+
 </html>
