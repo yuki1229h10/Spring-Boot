@@ -57,9 +57,14 @@ public class CruddemoApplication {
 
 		// save the instructor
 		//
+		// NOTE: this will ALSO save the courses
+		// because of CascadeType.PERSIST
+		//
 		System.out.println("Saving instructor: " + tempInstructor);
 		System.out.println("The courses: " + tempInstructor.getCourses());
 		appDAO.save(tempInstructor);
+
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
