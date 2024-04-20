@@ -25,7 +25,20 @@ public class CruddemoApplication {
 
 		return runner -> {
 
+			createCourseAndStudents(appDAO);
+
 		};
+	}
+
+	private void createCourseAndStudents(AppDAO appDAO) {
+
+		// create a course
+
+		// create the students
+
+		// add students to the course
+
+		// save the coursr and associated students
 	}
 
 	private void deleteCourseAndReviews(AppDAO appDAO) {
