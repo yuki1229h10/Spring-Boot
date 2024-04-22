@@ -28,9 +28,48 @@ public class CruddemoApplication {
 
 			//	createCourseAndStudents(appDAO);
 
-			findCourseAndStudents(appDAO);
+			//	findCourseAndStudents(appDAO);
+
+			//	findStudentAndCourses(appDAO);
+
+			//	addMoreCoursesForStudent(appDAO);
+
+			deleteCourse(appDAO);
 
 		};
+	}
+
+	private void addMoreCoursesForStudent(AppDAO appDAO) {
+
+		int theId = 2;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+
+		// create more courses
+		Course tempCourse1 = new Course("Rubik's Cube - How to Speed Cube");
+		Course tempCourse2 = new Course("Atari 2600 - Game Development");
+
+		// add courses to student
+		tempStudent.addCourse(tempCourse1);
+		tempStudent.addCourse(tempCourse2);
+
+		System.out.println("Updating student: " + tempStudent);
+		System.out.println("associated courses: " + tempStudent.getCourses());
+
+		appDAO.update(tempStudent);
+
+		System.out.println("Done!");
+	}
+
+	private void findStudentAndCourses(AppDAO appDAO) {
+
+		int theId = 3;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+
+		System.out.println("Loaded student: " + tempStudent);
+		System.out.println("Courses: " + tempStudent.getCourses());
+
+		System.out.println("Done!");
+
 	}
 
 	private void findCourseAndStudents(AppDAO appDAO) {
@@ -52,10 +91,12 @@ public class CruddemoApplication {
 		// create the students
 		Student tempStudent1 = new Student("John", "Doe", "john@luv2code.com");
 		Student tempStudent2 = new Student("Mary", "Public", "mary@luv2code.com");
+		Student tempStudent3 = new Student("DIO", "Brando", "dio@luv2code.com");
 
 		// add students to the course
 		tempCourse.addStudent(tempStudent1);
 		tempCourse.addStudent(tempStudent2);
+		tempCourse.addStudent(tempStudent3);
 
 		// save the course and associated students
 		System.out.println("Saving the course: " + tempCourse);
