@@ -11,6 +11,7 @@ public class MyDemoLoggingAspect {
 	@Before("forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n=====>>> Executing @Before advice on method");
+		System.out.println("rest");
 	}
 
 }
