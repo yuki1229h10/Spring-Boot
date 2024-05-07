@@ -54,7 +54,6 @@ public class MyDemoLoggingAspect {
 	@Before("com.luv2code.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
 		System.out.println("\n=====>>> Executing @Before advice on method");
-		System.out.println("rest");
 
 		// display the method signature
 		MethodSignature methodSignature = (MethodSignature) theJoinPoint.getSignature();
