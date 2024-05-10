@@ -45,7 +45,7 @@ public class AopdemoApplication {
 		// display the accounts
 		System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
 		System.out.println("----");
-		System.out.println("rest");
+		//		System.out.println("rest");
 
 		System.out.println(theAccounts);
 
