@@ -37,15 +37,14 @@ public class AopdemoApplication {
 		try {
 			// add a boolean flag to simulate exceptions
 			boolean tripWire = true;
-
-			theAccounts = theAccountDAO.findAccounts();
+			theAccounts = theAccountDAO.findAccounts(tripWire);
 		} catch (Exception exc) {
 			System.out.println("\n\nMain Program: ... caught exception: " + exc);
 		}
+
 		// display the accounts
 		System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
 		System.out.println("----");
-		//		System.out.println("rest");
 
 		System.out.println(theAccounts);
 
