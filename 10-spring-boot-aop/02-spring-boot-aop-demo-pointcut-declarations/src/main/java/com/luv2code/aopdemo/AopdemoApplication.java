@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.luv2code.aopdemo.dao.AccountDAO;
 import com.luv2code.aopdemo.dao.MembershipDAO;
+import com.luv2code.aopdemo.service.TrafficFortuneService;
 
 @SpringBootApplication
 public class AopdemoApplication {
@@ -18,16 +19,31 @@ public class AopdemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO,
+			TrafficFortuneService theTrafficFortuneService) {
 
 		return runner -> {
 
 			//	demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			//	demoTheAfterReturningAdvice(theAccountDAO);
 			//	demoTheAfterThrowingAdvice(theAccountDAO);
+			//	demoTheAfterAdvice(theAccountDAO);
 
-			demoTheAfterAdvice(theAccountDAO);
+			demoTheAroundAdvice(theTrafficFortuneService);
 		};
+	}
+
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+
+		System.out.println("\nMain Program: demoTheAroundAdvice");
+
+		System.out.println("Caling getFortune()");
+
+		String data = theTrafficFortuneService.getFortune();
+
+		System.out.println("\nMy fortune is: " + data);
+
+		System.out.println("Finished");
 	}
 
 	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
